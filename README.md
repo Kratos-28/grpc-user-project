@@ -18,4 +18,17 @@ This is a sample gRPC service for managing user details with search functionalit
 1. Clone this repository to your local machine.
 2. Navigate to the server directory: `cd grpc-userservice/server`.
 3. Run the following command to build the application:
+   ```bash
+   go build -o main .
+4. Run the executable: ./main
+
+##Accessing gRPC Endpoints
+
+Once the server is running, you can access the gRPC service endpoints using any gRPC client. By default, the server listens on port 50051.
+To run the client:
+  cd grpc-userservice
+  go run client.go
+
+    
+
 
