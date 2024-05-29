@@ -6,7 +6,6 @@ This is a sample gRPC service for managing user details with search functionalit
 1. [Prerequisites](#prerequisites)
 2. [Build and Run](#build-and-run)
 3. [Accessing gRPC Endpoints](#accessing-grpc-endpoints)
-4. [Configuration](#configuration)
 
 ## Prerequisites
 - Go 1.18 or higher installed on your machine.
