@@ -14,15 +14,25 @@ type UserServiceServer struct {
 	pb.UnimplementedUserServiceServer
 }
 
-func main() {
+func StartServer() (*grpc.Server, net.Listener, error) {
 	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		return nil, nil, err
 	}
 	s := grpc.NewServer()
 	pb.RegisterUserServiceServer(s, &UserServiceServer{})
 	log.Println("gRPC server is running on port :50051")
-	if err := s.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
+	go func() {
+		if err := s.Serve(lis); err != nil {
+			log.Fatalf("failed to serve: %v", err)
+		}
+	}()
+	return s, lis, nil
+}
+
+func main() {
+	_, _, err := StartServer()
+	if err != nil {
+		log.Fatalf("failed to start server: %v", err)
 	}
 }
