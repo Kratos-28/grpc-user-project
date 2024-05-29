@@ -25,8 +25,11 @@ This is a sample gRPC service for managing user details with search functionalit
 ##Accessing gRPC Endpoints
 
 Once the server is running, you can access the gRPC service endpoints using any gRPC client. By default, the server listens on port 50051.
+To run server
+   cd cd grpc-userservice/server
+    go run main.go
 To run the client:
-  cd grpc-userservice
+  cd grpc-userservice/client
   go run client.go
 
     
